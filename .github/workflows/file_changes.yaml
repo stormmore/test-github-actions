@@ -4,7 +4,13 @@ jobs:
   changes:
     runs-on: ubuntu-latest
     steps:
-    - id: file_changes
-      uses: trilom/file-changes-action@v1
-      with:
-        githubToken: ${{ secrets.BOT_TOKEN }}
+      - id: file_changes
+        uses: trilom/file-changes-action@v1
+        with:
+          githubToken: ${{ secrets.BOT_TOKEN }}
+      - id: Dump Files
+        run: |
+          echo '${{ steps.file_changes.outputs.files}}'
+          echo '${{ steps.file_changes.outputs.files_modified}}'
+          echo '${{ steps.file_changes.outputs.files_added}}'
+          echo '${{ steps.file_changes.outputs.files_deleted}}'
