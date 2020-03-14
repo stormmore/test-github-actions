@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: file_changes
+        name: Files Changed
         uses: trilom/file-changes-action@v1
         with:
           githubToken: ${{ secrets.BOT_TOKEN }}
