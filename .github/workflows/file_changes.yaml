@@ -4,16 +4,7 @@ jobs:
   changes:
     runs-on: ubuntu-latest
     steps:
-      - id: file_changes
-        name: Files Changed
-        uses: trilom/file-changes-action@v1
-        with:
-          githubToken: ${{ secrets.BOT_TOKEN }}
-          pushBefore: HEAD~1
-          pushAfter: HEAD
-      - name: Dump Files
-        run: |
-          echo '${{ steps.file_changes.outputs.files}}'
-          echo '${{ steps.file_changes.outputs.files_modified}}'
-          echo '${{ steps.file_changes.outputs.files_added}}'
-          echo '${{ steps.file_changes.outputs.files_deleted}}'
+      - name: Checkout
+        uses: actions/checkouts@v2
+      - name: Files Changed
+        uses: know-ops/files-changed@v1
