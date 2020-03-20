@@ -7,4 +7,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Files Changed
-        uses: know-ops/files-changed-action@v1-alpha.6
+        uses: know-ops/files-changed-action@v1-alpha.7
